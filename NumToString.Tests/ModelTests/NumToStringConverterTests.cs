@@ -7,10 +7,20 @@ namespace NumToString.Tests
   public class NumToStringConverterTests
   {
     [TestMethod]
-    public void NumToStringConverter_StaticDictionaryZeroToNine_CorrectString()
+    public void NumToStringConverter_StaticDictionaryZeroToNine_Constructor()
     {
       Assert.AreEqual("zero", NumToStringConverter.GetNumSpelled("0"));
     }
 
+    [TestMethod]
+    public void NumToStringConverter_GetNumSpelledZeroToNine_NumSpelled()
+    {
+      Assert.AreEqual("eight", NumToStringConverter.GetNumSpelled("8"));
+    }
+    [TestMethod]
+    public void NumToStringConverter_GetNumSpelledNaN_NaN()
+    {
+      Assert.AreEqual("NaN", NumToStringConverter.GetNumSpelled("test"));
+    }
   }
 }
