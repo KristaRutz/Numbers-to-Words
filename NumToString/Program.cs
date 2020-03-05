@@ -1,6 +1,6 @@
 using System;
 
-namespace Project
+namespace NumToString
 {
   public class Program
   {

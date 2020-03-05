@@ -36,9 +36,21 @@ Download or clone the repository to run this program locally! _This program requ
 <details>
   <summary>Expand specs for this project</summary>
 
-| Spec | Example Input | Expected Output |
-| :--- | :------------ | :-------------- |
-
+| Spec                                                                                 | Example Input           | Expected Output                      |
+| :----------------------------------------------------------------------------------- | :---------------------- | :----------------------------------- |
+| Program prints out the inputted string with no numbers                               | "hello"                 | "hello"                              |
+| Program replaces "0" with zero                                                       | "I am 0 years old"      | "I am zero years old"                |
+| Program replaces "1" with one                                                        | "I am 1 years old"      | "I am 1 years old"                   |
+| Program replaces any single digit number with the correct text                       | "I am 6 years old"      | "I am six years old"                 |
+| Program can identify a two digit number, but ignores leading zeros                   | "I am 06 years old"     | "I am six years old"                 |
+| Program can identify a two digit multiple of ten (20-90), but ignores trailing zeros | "I am 20 years old"     | "I am twenty years old"              |
+| Program replaces any two digit number with the correct text                          | "I am 66 years old"     | "I am sixty-six years old"           |
+| Program can parse 10-19 correctly                                                    | "I am 13 years old"     | "I am thirteen years old"            |
+| Program can identify a three digit multiple of 100 (100-900) as a "hundred"          | "I am 100 years old"    | "I am one hundred years old"         |
+| Program replaces any three digit number, and includes "and"                          | "I am 110 years old"    | "I am one hundred and ten years old" |
+| Program can identify numbers 1000 and above with a "thousand"                        | "I am 1000 years old"   | "I am one thousand years old"        |
+| Program can identify numbers 1000 and above with a "thousand", and parse commas      | "I am 1,000 years old"  | "I am one thousand years old"        |
+| Program can identify multiples of 1000 and above with a "thousand"                   | "I am 45,000 years old" | "I am forty-five thousand years old" |
 
 </details>
 <details>
