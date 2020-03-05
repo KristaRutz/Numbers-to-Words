@@ -19,6 +19,20 @@ namespace NumToString.Models
       ["9"] = "nine",
     };
 
+    private static Dictionary<string, string> _Tens = new Dictionary<string, string>()
+    {
+      ["00"] = "zero",
+      ["10"] = "ten",
+      ["20"] = "twenty",
+      ["30"] = "thirty",
+      ["40"] = "forty",
+      ["50"] = "fifty",
+      ["60"] = "sixty",
+      ["70"] = "seventy",
+      ["80"] = "eighty",
+      ["90"] = "ninety",
+    };
+
     public static string GetNumSpelled(string digitKey)
     {
       //int number;
@@ -38,6 +52,12 @@ namespace NumToString.Models
       {
         Console.WriteLine(_zeroToNine[digitKey]);
         return _zeroToNine[digitKey];
+      }
+
+      if (number >= 10 && number < 91)
+      {
+        Console.WriteLine(_Tens[digitKey]);
+        return _Tens[digitKey];
       }
       return "NaN";
     }

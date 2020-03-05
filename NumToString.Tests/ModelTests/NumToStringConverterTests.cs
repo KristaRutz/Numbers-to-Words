@@ -22,5 +22,16 @@ namespace NumToString.Tests
     {
       Assert.AreEqual("NaN", NumToStringConverter.GetNumSpelled("test"));
     }
+    [TestMethod]
+    public void NumToStringConverter_GetNumSpelledTens_NumSpelled()
+    {
+      Assert.AreEqual("sixty", NumToStringConverter.GetNumSpelled("60"));
+    }
+
+    // [TestMethod]
+    public void NumToStringConverter_GetNumSpelledLeadingZero_NumSpelled()
+    {
+      Assert.AreEqual("six", NumToStringConverter.GetNumSpelled("06"));
+    }
   }
 }
