@@ -28,6 +28,18 @@ namespace NumToString.Tests
       Assert.AreEqual("sixty", NumToStringConverter.GetNumSpelled("60"));
     }
 
+    [TestMethod]
+    public void NumToStringConverter_GetNumSpelledTeens_NumSpelled()
+    {
+      Assert.AreEqual("seventeen", NumToStringConverter.GetNumSpelled("17"));
+    }
+
+    [TestMethod]
+    public void NumToStringConverter_GetOtherNumBetween20and100_NumSpelled()
+    {
+      Assert.AreEqual("twenty-one", NumToStringConverter.GetNumSpelled("21"));
+    }
+
     // [TestMethod]
     public void NumToStringConverter_GetNumSpelledLeadingZero_NumSpelled()
     {

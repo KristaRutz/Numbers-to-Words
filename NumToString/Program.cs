@@ -1,4 +1,5 @@
 using System;
+using NumToString.Models;
 
 namespace NumToString
 {
@@ -8,7 +9,9 @@ namespace NumToString
     {
       Console.WriteLine("Input a number");
       string usernumber = Console.ReadLine();
-      Console.WriteLine(usernumber);
+      string spelled = NumToStringConverter.GetNumSpelled(usernumber);
+      Console.WriteLine(spelled);
+      Main();
     }
   }
 }

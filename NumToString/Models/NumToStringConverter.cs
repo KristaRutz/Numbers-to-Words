@@ -19,7 +19,21 @@ namespace NumToString.Models
       ["9"] = "nine",
     };
 
-    private static Dictionary<string, string> _Tens = new Dictionary<string, string>()
+    private static Dictionary<string, string> _teens = new Dictionary<string, string>()
+    {
+      ["10"] = "ten",
+      ["11"] = "eleven",
+      ["12"] = "twelve",
+      ["13"] = "thirteen",
+      ["14"] = "fourteen",
+      ["15"] = "fifteen",
+      ["16"] = "sixteen",
+      ["17"] = "seventeen",
+      ["18"] = "eighteen",
+      ["19"] = "nineteen",
+    };
+
+    private static Dictionary<string, string> _tens = new Dictionary<string, string>()
     {
       ["00"] = "zero",
       ["10"] = "ten",
@@ -33,18 +47,42 @@ namespace NumToString.Models
       ["90"] = "ninety",
     };
 
-    public static string GetNumSpelled(string digitKey)
-    {
-      //int number;
 
+
+    public static int ParseKey(string digitKey)
+    {
       bool success = int.TryParse(digitKey, out int number);
       if (success)
       {
         Console.WriteLine("converted");
+        return number;
       }
       else
       {
-        //throw new Exception("Inputted string could not be parsed to int.");
+        throw new Exception("Inputted string could not be parsed to int.");
+      }
+    }
+
+    public static string GetNumSpelled(string digitKey)
+    {
+      char[] digitCharArray;
+      digitCharArray = digitKey.ToCharArray();
+      for (int i = 0; i < digitKey.Length; i++)
+      {
+        if (i = 0)
+        {
+          digitCharArray[i].ToString() + "0";
+        }
+      }
+
+      int number;
+      try
+      {
+        number = NumToStringConverter.ParseKey(digitKey);
+      }
+      catch (Exception ex)
+      {
+        Console.WriteLine("ERROR: {0}", ex.Message);
         return "NaN";
       }
 
@@ -54,12 +92,23 @@ namespace NumToString.Models
         return _zeroToNine[digitKey];
       }
 
-      if (number >= 10 && number < 91)
+      else if (number >= 10 && number < 20)
       {
-        Console.WriteLine(_Tens[digitKey]);
-        return _Tens[digitKey];
+        Console.WriteLine(_teens[digitKey]);
+        return _teens[digitKey];
       }
-      return "NaN";
+
+      else if (number >= 20 && number <= 90 && number % 10 == 0)
+      {
+        Console.WriteLine(_tens[digitKey]);
+        return _tens[digitKey];
+      }
+      else if (number < 100)
+      {
+
+      }
+
+      return "Out of current range";
     }
   }
 }
